@@ -1,5 +1,6 @@
 import '@fontsource/kristi/400.css';
 import '@fontsource/caveat/latin-500.css';
+import { wavedash } from './wavedash.js';
 
 const q = new URLSearchParams(location.search);
 
@@ -10,6 +11,7 @@ window.__worldTaste = { ready: new Promise((r) => { worldIsReady = r; }), camera
 if (q.has('gallery')) {
   const { showGallery } = await import('./gallery.js');
   await showGallery(q.get('gallery') || 'land');
+  wavedash.ready();
 } else {
   // the loader is small and goes up first; the game arrives behind it
   const { papers } = await import('./draw/paper.js');
@@ -19,5 +21,7 @@ if (q.has('gallery')) {
   if (import.meta.env.DEV || q.has('debug')) window.__inkLoader = loader;
   loader.set(0.02);
   const { boot } = await import('./game.js');
-  await boot(q, loader, worldIsReady);
+  // boot calls wavedash.ready() once the world is drawing; if boot fails, still
+  // lift Wavedash's loading screen so the page is not stuck behind it
+  try { await boot(q, loader, worldIsReady); } finally { wavedash.ready(); }
 }

@@ -6,6 +6,7 @@
 
 import { papers } from './draw/paper.js';
 import { makeRng, noise1, clamp, lerp, smooth01 } from './draw/rng.js';
+import { wavedash } from './wavedash.js';
 
 const INK = [74, 47, 23];
 const ink = (a = 1) => `rgba(${INK[0]},${INK[1]},${INK[2]},${a})`;
@@ -84,7 +85,7 @@ export class Loader {
   }
 
   // real progress, 0..1
-  set(p) { this.p = clamp(p, this.p, 1); }
+  set(p) { this.p = clamp(p, this.p, 1); wavedash.progress(this.p); }
 
   async run() {
     while (this.alive) {

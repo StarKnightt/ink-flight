@@ -22,6 +22,7 @@ import { papers } from './draw/paper.js';
 import { U, sheetTexture, markMaterial } from './materials.js';
 import { CAMERAS, SPAWN, SUN, WORLD } from './layout.js';
 import { installWorldTaste } from './world-taste-hook.js';
+import { wavedash } from './wavedash.js';
 
 // how many times the world build reports in; the loader's pen follows this
 const STEPS = 45;
@@ -234,6 +235,9 @@ export async function boot(q, loader, onReady) {
     });
   }
   loader?.set(1);
+  // the world is built and drawing: let Wavedash lift its loading screen now,
+  // so the fold and the flight below are seen
+  wavedash.ready();
   // the loader's own dart stands in for the plane until it lands on it
   const landing = fixed ? null : planeScreen();
   if (loader && !freeze && !fixed) plane.visible = false;
