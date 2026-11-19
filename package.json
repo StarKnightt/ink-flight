@@ -2,6 +2,7 @@
   "name": "ink-flight",
   "version": "1.0.0",
   "description": "Fly a folded paper plane through an explorer's sketchbook drawn in ink, pencil and faded watercolour.",
+  "license": "MIT",
   "type": "module",
   "private": true,
   "scripts": {

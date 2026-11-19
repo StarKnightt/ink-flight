@@ -109,6 +109,10 @@ The title is set in [Kristi](https://fonts.google.com/specimen/Kristi) (copyrigh
 
 Built with [three.js](https://threejs.org) and [Vite](https://vite.dev).
 
+## Licence
+
+MIT. See [LICENSE](LICENSE). The two fonts and three.js keep their own licences, noted there.
+
 ## Support
 
 If you enjoyed this, you can support my work:
