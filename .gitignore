@@ -1,0 +1,10 @@
+node_modules/
+dist/
+# reference images are for study only and never ship
+refs/
+# working screenshots from the browser check
+shots/
+.claude/
+*.log
+# world-taste browser check output
+.world-check/
