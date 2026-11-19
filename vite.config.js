@@ -27,8 +27,12 @@ function shotSaver() {
   };
 }
 
+// GitHub Pages serves the game under /ink-flight/ (GITHUB_PAGES=1 in the
+// workflow); everything else (dev, Wavedash, any static host) uses a relative base.
+const base = process.env.GITHUB_PAGES ? '/ink-flight/' : './';
+
 export default defineConfig({
-  base: './',
+  base,
   plugins: [shotSaver()],
   build: { target: 'es2022', chunkSizeWarningLimit: 1500 },
   server: { host: '127.0.0.1' },

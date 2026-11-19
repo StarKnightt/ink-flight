@@ -4,7 +4,11 @@
 
 Fly a folded white paper plane through an explorer's sketchbook that has stood up off the page.
 
-**Play it on Wavedash: https://wavedash.com/games/ink-flight** — keyboard and mouse. Click **Start flying**; that click also starts the sound.
+**Play: https://starknightt.github.io/ink-flight/**
+
+**Also on Wavedash: https://wavedash.com/games/ink-flight**
+
+Keyboard and mouse. Click **Start flying**; that click also starts the sound.
 
 Everything in the valley is ink and restrained watercolour on old yellowed paper, the way a painter tints an ink sketch: ink-hatched mountains fading into blue haze, a teal river, a pen-drawn town with terracotta roofs and a stone bridge, a windmill, a lighthouse on a cliff, a forest in green ink. The world is made of flat drawn sheets standing in space like a theatre set, so flying through it has real depth and parallax. Clouds smudge where you fly through them. Wind is drawn as pencil strokes. It is late afternoon and the sun comes through the paper.
 
@@ -36,7 +40,7 @@ pnpm preview
 
 It renders with three.js on WebGPU and falls back to WebGL 2 where WebGPU is missing.
 
-The build uses a relative base, so `dist/` works from any static host or sub-path. For [Wavedash](https://wavedash.com/games/ink-flight), `wavedash.toml` points the Wavedash CLI at `dist/`, and `src/wavedash.js` passes the loader's progress to Wavedash's loading bar and calls `Wavedash.init()` once the world is drawing. Off Wavedash every one of those calls does nothing, so the same build runs everywhere. To release a new build:
+The build uses a relative base, so `dist/` works from any static host or sub-path. Every push to `main` also deploys it to GitHub Pages through `.github/workflows/pages.yml`, built with `GITHUB_PAGES=1`, which sets the base to `/ink-flight/`. For [Wavedash](https://wavedash.com/games/ink-flight), `wavedash.toml` points the Wavedash CLI at `dist/`, and `src/wavedash.js` passes the loader's progress to Wavedash's loading bar and calls `Wavedash.init()` once the world is drawing. Off Wavedash every one of those calls does nothing, so the same build runs everywhere. To release a new build:
 
 ```sh
 pnpm build
