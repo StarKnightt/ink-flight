@@ -111,7 +111,7 @@ Built with [three.js](https://threejs.org) and [Vite](https://vite.dev).
 
 ## Licence
 
-MIT. See [LICENSE](LICENSE). The two fonts and three.js keep their own licences, noted there.
+MIT. See [LICENSE](LICENSE). That covers this repository's code and drawings. What the build bundles from others keeps its own terms: the Kristi and Caveat fonts are under the SIL Open Font License 1.1, and three.js is MIT, copyright its authors.
 
 ## Support
 
